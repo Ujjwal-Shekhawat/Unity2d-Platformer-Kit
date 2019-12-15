@@ -112,7 +112,7 @@ public class Player : MonoBehaviour
 
 /* NOTES : 
  * Add maybe attack functionality
- * 
+ * Add death function
  * 
  * 
  * 
