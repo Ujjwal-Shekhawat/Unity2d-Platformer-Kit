@@ -87,6 +87,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    //UpdateScore function (Used Defined). This function is responsible for Updating the player score
     public void UpdateScore(float score)
     {
         scoreText.text = "Score : " + score.ToString();
