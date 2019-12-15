@@ -15,7 +15,7 @@ public class CameraFollow : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    void Update()
+    void LateUpdate()
     {
         Vector3 playerPositionRectified = player.position - zoffset;
         transform.position = Vector3.Lerp(transform.position, playerPositionRectified, linear_interpolate_speed);

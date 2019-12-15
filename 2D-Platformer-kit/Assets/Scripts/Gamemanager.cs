@@ -14,7 +14,7 @@ public class Gamemanager : MonoBehaviour
 }
 
 /* NOTES : 
- * Make this at last and add a story mode too
+ * Make this at last and add a story mode too | Completed
  * Make a checkpoint system
  * 
  * 

@@ -34,7 +34,9 @@ public class Player : MonoBehaviour
         Locomotion(hor);
         Animate(hor);
 
-        jump();
+        if (Input.GetKeyDown("space"))
+            jump();
+
     }
 
     //Locomotion function (Used Defined). This function is responsible for player movement
@@ -76,20 +78,15 @@ public class Player : MonoBehaviour
     //jump function (User Defined). This function is responsible for player jump and also the jump animations are handled here
     void jump()
     {
-        if (Input.GetKeyDown("space") && Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer))
+        if (Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer))
         {
-            playerBod.velocity = new Vector2(0f, 5f);
-        }
-        
-        else if (Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer))
-        {
-            animatio.SetBool("jumping", false);
-        }
-
-        else
-        {
+            //playerBod.velocity = new Vector2(0f, 5f);  //Use any one method and comment the other one out
+            playerBod.AddForce(Vector2.up * 300.0f);
             animatio.SetBool("jumping", true);
         }
+
+        //find a method to stop the jump animation
+
     }
 
     //UpdateScore function (Used Defined). This function is responsible for Updating the player score
