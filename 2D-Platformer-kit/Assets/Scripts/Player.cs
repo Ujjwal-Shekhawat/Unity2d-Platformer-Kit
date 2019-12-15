@@ -71,7 +71,15 @@ public class Player : MonoBehaviour
             animatio.SetBool("walk", false);
         }
 
-        //Note : There is one more animatio mode named jump which is taken care of in jump() function
+        if (playerBod.velocity.y != 0)
+        {
+            animatio.SetBool("jumping", true);
+        }
+
+        if (playerBod.velocity.y == 0)
+        {
+            animatio.SetBool("jumping", false);
+        }
 
     }
 
@@ -80,9 +88,10 @@ public class Player : MonoBehaviour
     {
         if (Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer))
         {
-            //playerBod.velocity = new Vector2(0f, 5f);  //Use any one method and comment the other one out
+            //Use any one method and comment the other one out
+
+            //playerBod.velocity = new Vector2(0f, 5f);
             playerBod.AddForce(Vector2.up * 300.0f);
-            animatio.SetBool("jumping", true);
         }
 
         //find a method to stop the jump animation
