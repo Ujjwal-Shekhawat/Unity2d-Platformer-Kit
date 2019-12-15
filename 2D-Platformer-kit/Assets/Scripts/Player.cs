@@ -13,7 +13,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Animator animatio;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform groundCheck;
-    [SerializeField] private Text scoreText;
+    [SerializeField] private Text scoreText, healthText;
+    [SerializeField] private float PlayerHealth;
 
     //Start function called when the object is instiancated
     void Start()
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
         //Create a user defined function Setup() to set all the things up according to players convinence
         playerBod = GetComponent<Rigidbody2D>();
         animatio = GetComponent<Animator>();
+        PlayerHealth = 100.0f;
         transform.localScale = new Vector3(playerScale, playerScale, playerScale);
     }
 
@@ -66,6 +68,9 @@ public class Player : MonoBehaviour
         {
             animatio.SetBool("walk", false);
         }
+
+        //Note : There is one more animatio mode named jump which is taken care of in jump() function
+
     }
 
     //jump function (User Defined). This function is responsible for player jump and also the jump animations are handled here
@@ -92,4 +97,23 @@ public class Player : MonoBehaviour
     {
         scoreText.text = "Score : " + score.ToString();
     }
+
+    public void TakeDamage(float Damage)
+    {
+        PlayerHealth -= Damage;
+        UpdateHealth();
+    }
+
+    void UpdateHealth()
+    {
+        healthText.text = "Health : " + PlayerHealth.ToString();
+    }
 }
+
+/* NOTES : 
+ * Add maybe attack functionality
+ * 
+ * 
+ * 
+ * 
+*/

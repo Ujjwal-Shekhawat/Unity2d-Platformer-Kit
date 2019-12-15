@@ -19,3 +19,10 @@ public class Star_Collectible : MonoBehaviour
         }
     }
 }
+
+/* NOTES : 
+ * This script is complete
+ * Can Add these things :
+ * Diffrent behaviour physics when spawnned from chests
+ * Some motion if needed
+*/

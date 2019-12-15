@@ -20,3 +20,10 @@ public class CameraFollow : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, playerPositionRectified, linear_interpolate_speed);
     }
 }
+
+/* NOTES : 
+ * This script is completed
+ * My be i will think of adding some more functionality
+ * Camera shake can be addd
+ * Some camera effects can be added
+*/
