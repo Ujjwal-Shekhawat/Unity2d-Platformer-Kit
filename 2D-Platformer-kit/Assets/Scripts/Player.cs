@@ -42,17 +42,17 @@ public class Player : MonoBehaviour
     {
         if(hor != 0)
         {
-            transform.Translate(Vector2.right * speed * hor * Time.deltaTime);
+            transform.Translate(Vector2.right * speed * Time.deltaTime);
         }
 
         if (hor < 0)
         {
-            transform.localScale = new Vector3(-playerScale, playerScale, playerScale);
+            transform.eulerAngles = new Vector3(0, 180, 0);
         }
 
         if (hor > 0)
         {
-            transform.localScale = new Vector3(playerScale, playerScale, playerScale);
+            transform.eulerAngles = new Vector3(0, 0, 0);
         }
     }
 
@@ -102,6 +102,7 @@ public class Player : MonoBehaviour
     {
         PlayerHealth -= Damage;
         UpdateHealth();
+        Camera.main.GetComponent<CameraFollow>().Shake();
     }
 
     void UpdateHealth()

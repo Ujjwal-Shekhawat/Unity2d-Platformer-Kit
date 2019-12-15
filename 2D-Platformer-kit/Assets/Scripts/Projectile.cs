@@ -6,7 +6,8 @@ public class Projectile : MonoBehaviour
 {
 
 
-    [SerializeField] private float Damage = 5.0f;
+    [SerializeField] private float Damage = 1.0f;
+    [SerializeField] private float projectileSpeed = 5f;
 
     private void Start()
     {
@@ -16,7 +17,7 @@ public class Projectile : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(-Vector2.right * 1f * Time.deltaTime);
+        transform.Translate(-Vector2.right * projectileSpeed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D objecthitted)

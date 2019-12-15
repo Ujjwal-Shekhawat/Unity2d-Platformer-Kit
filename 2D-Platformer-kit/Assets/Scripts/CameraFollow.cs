@@ -8,6 +8,7 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private float linear_interpolate_speed = 1f;
     [SerializeField] private Vector3 zoffset = new Vector3(0, 0, 1);
+    [SerializeField] private float randomForPerlinPositive = -0.001f, randomForPerlinNegative = 0.001f; 
 
     private void Start()
     {
@@ -18,6 +19,20 @@ public class CameraFollow : MonoBehaviour
     {
         Vector3 playerPositionRectified = player.position - zoffset;
         transform.position = Vector3.Lerp(transform.position, playerPositionRectified, linear_interpolate_speed);
+    }
+
+    public void Shake()
+    {
+        transform.position = transform.position + new Vector3(Mathf.PerlinNoise(Random.RandomRange(randomForPerlinNegative, randomForPerlinPositive), Random.RandomRange(randomForPerlinNegative, randomForPerlinPositive)), Mathf.PerlinNoise(Random.RandomRange(randomForPerlinNegative, randomForPerlinPositive), Random.RandomRange(randomForPerlinNegative, randomForPerlinPositive)), 0);
+        transform.position = player.position;
+        transform.position = transform.position + new Vector3(Mathf.PerlinNoise(Random.RandomRange(randomForPerlinNegative, randomForPerlinPositive), Random.RandomRange(randomForPerlinNegative, randomForPerlinPositive)), Mathf.PerlinNoise(Random.RandomRange(randomForPerlinNegative, randomForPerlinPositive), Random.RandomRange(randomForPerlinNegative, randomForPerlinPositive)), 0);
+        transform.position = player.position;
+        transform.position = transform.position + new Vector3(Mathf.PerlinNoise(Random.RandomRange(randomForPerlinNegative, randomForPerlinPositive), Random.RandomRange(randomForPerlinNegative, randomForPerlinPositive)), Mathf.PerlinNoise(Random.RandomRange(randomForPerlinNegative, randomForPerlinPositive), Random.RandomRange(randomForPerlinNegative, randomForPerlinPositive)), 0);
+        transform.position = player.position;
+        transform.position = transform.position + new Vector3(Mathf.PerlinNoise(Random.RandomRange(randomForPerlinNegative, randomForPerlinPositive), Random.RandomRange(randomForPerlinNegative, randomForPerlinPositive)), Mathf.PerlinNoise(Random.RandomRange(randomForPerlinNegative, randomForPerlinPositive), Random.RandomRange(randomForPerlinNegative, randomForPerlinPositive)), 0);
+        transform.position = player.position;
+
+        //Not in mood to add actual shake effect sorry guys
     }
 }
 
