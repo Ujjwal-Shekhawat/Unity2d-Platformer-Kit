@@ -40,7 +40,6 @@ public class PlantEnemy : MonoBehaviour
             animatio.SetBool("Attack", false);
         }
 
-        
 
     }
 
@@ -94,10 +93,11 @@ public class PlantEnemy : MonoBehaviour
         StartCoroutine(Attack(attacktimegap));
     }
 
+
 }
 
 /* NOTES : 
- * 
+ * Add umm ,,, maybe a Death Animation
  * 
  * 
  * 

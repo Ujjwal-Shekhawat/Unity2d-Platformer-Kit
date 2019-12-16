@@ -35,7 +35,7 @@ public class StoryLines : MonoBehaviour
 }
 
 /* NOTES : 
- * Add string which can be modified by the user so that the user can create his custom story mode
+ * Add string which can be modified by the user so that the user can create his custom story mode | Completed
  * 
  * 
  * 

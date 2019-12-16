@@ -32,7 +32,7 @@ public class Projectile : MonoBehaviour
 }
 
 /* NOTES : 
- * Add explosion animation
+ * Add explosion animation | Thinking
  * 
  * 
  * 

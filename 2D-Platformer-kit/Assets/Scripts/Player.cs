@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Text scoreText, healthText;
     [SerializeField] private float PlayerHealth;
+    [SerializeField] private GameObject carrotTemporary;
 
     //Start function called when the object is instiancated
     void Start()
@@ -36,6 +37,8 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown("space"))
             jump();
+
+        TraceMouse(); //Temporary function
 
     }
 
@@ -90,8 +93,8 @@ public class Player : MonoBehaviour
         {
             //Use any one method and comment the other one out
 
-            //playerBod.velocity = new Vector2(0f, 5f);
-            playerBod.AddForce(Vector2.up * 300.0f);
+            playerBod.velocity = new Vector2(0f, 5f); //Glitchy
+            //playerBod.AddForce(Vector2.up * 300.0f);
         }
 
         //find a method to stop the jump animation
@@ -115,10 +118,19 @@ public class Player : MonoBehaviour
     {
         healthText.text = "Health : " + PlayerHealth.ToString();
     }
+
+    void TraceMouse() //Remove later
+    {
+        Vector2 Direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) -transform.position;
+        float Angle = Mathf.Atan2(Direction.y, Direction.x) * Mathf.Rad2Deg;
+        Quaternion rotate = Quaternion.AngleAxis(Angle - 90, Vector3.forward);
+        carrotTemporary.transform.rotation = rotate;
+    }
+
 }
 
 /* NOTES : 
- * Add maybe attack functionality
+ * Add umm ... maybe attack functionality
  * Add death function
  * 
  * 
