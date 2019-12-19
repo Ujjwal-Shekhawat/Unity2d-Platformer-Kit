@@ -97,7 +97,7 @@ public class PlantEnemy : MonoBehaviour
 }
 
 /* NOTES : 
- * Add umm ,,, maybe a Death Animation
+ * Add umm ... maybe a Death Animation | I think i will skip that
  * 
  * 
  * 

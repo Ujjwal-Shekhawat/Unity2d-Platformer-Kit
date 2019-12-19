@@ -15,16 +15,25 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Text scoreText, healthText;
     [SerializeField] private float PlayerHealth;
-    [SerializeField] private GameObject carrotTemporary;
-
+    [SerializeField] private GameObject carrotTemporary, projectile;
+    [SerializeField] private float Damage;
     //Start function called when the object is instiancated
     void Start()
     {
         //Create a user defined function Setup() to set all the things up according to players convinence
         playerBod = GetComponent<Rigidbody2D>();
         animatio = GetComponent<Animator>();
+        projectile = Resources.Load("PlantBullet") as GameObject;
+        RemoveSelfBulletHarm(projectile);
         PlayerHealth = 100.0f;
         transform.localScale = new Vector3(playerScale, playerScale, playerScale);
+    }
+
+    private void RemoveSelfBulletHarm(GameObject makeFriend)
+    {
+        Projectile FriendlyBullet = makeFriend.GetComponent<Projectile>();
+        Destroy(FriendlyBullet);
+        //makeFriend.transform.parent = ;
     }
 
     //Update function called every frame
@@ -37,6 +46,11 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown("space"))
             jump();
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            AttackRange();
+        }
 
         TraceMouse(); //Temporary function
 
@@ -119,12 +133,17 @@ public class Player : MonoBehaviour
         healthText.text = "Health : " + PlayerHealth.ToString();
     }
 
-    void TraceMouse() //Remove later
+    void TraceMouse() //Remove later | Keep if you want to add attack functionality but for that in the enemy scripts add health functionality and death accordingly
     {
         Vector2 Direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) -transform.position;
         float Angle = Mathf.Atan2(Direction.y, Direction.x) * Mathf.Rad2Deg;
         Quaternion rotate = Quaternion.AngleAxis(Angle - 90, Vector3.forward);
         carrotTemporary.transform.rotation = rotate;
+    }
+
+    void AttackRange()
+    {
+        Instantiate(projectile, transform.position, transform.rotation);
     }
 
 }

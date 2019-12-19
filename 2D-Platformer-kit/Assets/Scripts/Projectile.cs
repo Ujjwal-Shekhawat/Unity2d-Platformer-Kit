@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] private float Damage = 1.0f;
     [SerializeField] private float projectileSpeed = 5f;
+    [SerializeField] private float seconds_of_projectile_inactivity = 0.2f;
 
     private void Start()
     {
@@ -22,9 +23,15 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D objecthitted)
     {
-        if (objecthitted.CompareTag("Player"))
+        StartCoroutine(SafetyMeasures(objecthitted));
+    }
+
+    IEnumerator SafetyMeasures(Collider2D refrenceObject)
+    {
+        yield return new WaitForSeconds(seconds_of_projectile_inactivity);
+        if (refrenceObject.CompareTag("Player"))
         {
-            Player playerScript = objecthitted.transform.GetComponent<Player>();
+            Player playerScript = refrenceObject.transform.GetComponent<Player>();
             playerScript.TakeDamage(Damage);
             Destroy(gameObject);
         }
