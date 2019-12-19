@@ -145,7 +145,7 @@ public class Player : MonoBehaviour
     {
         Vector2 Direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         float Angle = Mathf.Atan2(Direction.y, Direction.x) * Mathf.Rad2Deg;
-        Quaternion rotate = Quaternion.AngleAxis(Angle + 90, Vector3.forward);
+        Quaternion rotate = Quaternion.AngleAxis(Angle - 180f, Vector3.forward);
         Instantiate(projectile, transform.position, rotate);
     }
 

@@ -5393,6 +5393,10 @@ PrefabInstance:
       propertyPath: carrotTemporary
       value: 
       objectReference: {fileID: 1496588459}
+    - target: {fileID: 1803257805, guid: e3a46fc2497f5cb4eb6e954122fd7990, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3a46fc2497f5cb4eb6e954122fd7990, type: 3}
 --- !u!1001 &6354740909634435850
