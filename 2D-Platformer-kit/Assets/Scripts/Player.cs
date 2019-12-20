@@ -17,13 +17,14 @@ public class Player : MonoBehaviour
     [SerializeField] private float PlayerHealth;
     [SerializeField] private GameObject carrotTemporary, projectile;
     [SerializeField] private float Damage;
+    [SerializeField] private GameObject gunBarrel;
     //Start function called when the object is instiancated
     void Start()
     {
         //Create a user defined function Setup() to set all the things up according to players convinence
         playerBod = GetComponent<Rigidbody2D>();
         animatio = GetComponent<Animator>();
-        projectile = Resources.Load("PlantBullet") as GameObject;
+        projectile = Resources.Load("PlayerBullet") as GameObject;
         RemoveSelfBulletHarm(projectile);
         PlayerHealth = 100.0f;
         transform.localScale = new Vector3(playerScale, playerScale, playerScale);
@@ -146,7 +147,7 @@ public class Player : MonoBehaviour
         Vector2 Direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         float Angle = Mathf.Atan2(Direction.y, Direction.x) * Mathf.Rad2Deg;
         Quaternion rotate = Quaternion.AngleAxis(Angle - 180f, Vector3.forward);
-        Instantiate(projectile, transform.position, rotate);
+        Instantiate(projectile, gunBarrel.transform.position, rotate);
     }
 
 }

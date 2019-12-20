@@ -69,6 +69,19 @@ public class PlantEnemy : MonoBehaviour
             Destroy(Instantiate(deathEffect, transform.position, transform.rotation), 0.5f);
             Destroy(gameObject);
         }
+
+        if (collision.collider.CompareTag("Progectile"))
+        {
+            Destroy(gameObject);
+        }
+    }
+    //failed
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Progectile"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Turn()
@@ -93,12 +106,16 @@ public class PlantEnemy : MonoBehaviour
         StartCoroutine(Attack(attacktimegap));
     }
 
+    public void Death()
+    {
+        Destroy(gameObject);
+    }
 
 }
 
 /* NOTES : 
  * Add umm ... maybe a Death Animation | I think i will skip that
- * 
+ * Remove the colliders and make the detection systems so that thew work on Vector3 dimentions manipulations with calculations
  * 
  * 
 */

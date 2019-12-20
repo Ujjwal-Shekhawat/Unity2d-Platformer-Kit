@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 7861832217301551796}
   - component: {fileID: 7861832217301551797}
   - component: {fileID: 7861832217301551786}
-  - component: {fileID: 462809073220053016}
+  - component: {fileID: 1878771385430719901}
+  - component: {fileID: 9061189817496209084}
   m_Layer: 0
-  m_Name: PlantBullet
-  m_TagString: Untagged
+  m_Name: PlayerBullet
+  m_TagString: Progectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,7 +118,7 @@ CircleCollider2D:
   m_Offset: {x: -0.0029923469, y: 0}
   serializedVersion: 2
   m_Radius: 0.06522907
---- !u!114 &462809073220053016
+--- !u!114 &1878771385430719901
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,8 +127,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 7861832217301551798}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e83c5eb8ab9f44d4cbb51a3edd324dd3, type: 3}
+  m_Script: {fileID: 11500000, guid: 15b0c6e42b75da14c98fe987e4c03ee5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 1
-  projectileSpeed: 5
+--- !u!50 &9061189817496209084
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7861832217301551798}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

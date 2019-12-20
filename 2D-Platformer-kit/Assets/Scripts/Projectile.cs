@@ -13,10 +13,6 @@ public class Projectile : MonoBehaviour
     {
         transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         Destroy(gameObject, 10f);
-        if (transform.position == GameObject.FindGameObjectWithTag("Player").transform.position)
-        {
-            Damage = 0.0f;
-        }
     }
 
     private void Update()
